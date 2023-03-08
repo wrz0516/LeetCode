@@ -9,23 +9,17 @@ public class Q19 {
         ListNode(int val, ListNode next) { this.val = val; this.next = next; }
     }
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        if(head.next==null){
-            head=null;
+        ListNode dummy=new ListNode(-1,head);
+        ListNode slow=dummy,fast=dummy;
+        for(int i=0;i<n;i++){
+            fast=fast.next;
         }
-        ListNode pre=head,cur=head.next;
-        while(cur!=null){
-            ListNode temp=null;
-            for(int i=0;i<n;i++){
-                temp=cur.next;
-            }
-            if(temp==null){
-                pre.next=cur.next;
-            }else{
-                pre=pre.next;
-                cur=cur.next;
-            }
+        while(fast.next!=null){
+            slow=slow.next;
+            fast=fast.next;
         }
-        return head;
+        slow.next=slow.next.next;
+        return dummy.next;
     }
     public ListNode createList(int[] x){
         ListNode head=new ListNode(-1,null);//头节点
@@ -38,8 +32,8 @@ public class Q19 {
         return head.next;
     }
     public static void main(String[] args){
-        int[] x={1,2,6,3,4,5,6};
-        int val=3;
+        int[] x={1};
+        int val=1;
         Q19 demo=new Q19();
         ListNode head=demo.createList(x);
         ListNode node=demo.removeNthFromEnd(head,val);
