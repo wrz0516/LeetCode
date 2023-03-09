@@ -1,6 +1,5 @@
 package lianbiao;
 
-import java.util.Scanner;
 public class Q24 {
     public class ListNode {
         int val;
@@ -9,16 +8,7 @@ public class Q24 {
         ListNode(int val) { this.val = val; }
         ListNode(int val, ListNode next) { this.val = val; this.next = next; }
     }
-    public ListNode createList(int[] x){
-        ListNode head=new ListNode(-1,null);
-        ListNode cur=head;
-        for(int i=0;i<x.length;i++){
-            ListNode node=new ListNode(x[i],null);
-            cur.next=node;
-            cur=node;
-        }
-        return head.next;
-    }
+
     public ListNode swapPairs(ListNode head) {
         if(head==null || head.next==null){
             return head;
@@ -39,13 +29,5 @@ public class Q24 {
             }
         }
         return dummy.next;
-    }
-    public static void main(String[] args){
-        int[] x={1,2,3,4};
-
-        Q24 demo=new Q24();
-        ListNode head=demo.createList(x);
-        ListNode node=demo.swapPairs(head);
-        int a=1;
     }
 }
