@@ -20,21 +20,36 @@ public class Q206 {
         return head.next;
     }
 
-    public ListNode reverseList(ListNode head) {
-        if(head==null || head.next==null){
-            return head;
-        }
-        ListNode pre=head,cur=head.next,next=cur.next;
-        head.next=null;
-        while(next!=null){
-            cur.next=pre;
-            pre=cur;
-            cur=next;
-            next=next.next;
-        }
-        cur.next=pre;
-        return cur;
+//    public ListNode reverseList(ListNode head) {
+//        if(head==null || head.next==null){
+//            return head;
+//        }
+//        ListNode pre=head,cur=head.next,next=cur.next;
+//        head.next=null;
+//        while(next!=null){
+//            cur.next=pre;
+//            pre=cur;
+//            cur=next;
+//            next=next.next;
+//        }
+//        cur.next=pre;
+//        return cur;
+//    }
+public ListNode reverseList(ListNode head){
+    ListNode pre = head;
+    if(pre==null || pre.next==null){
+        return pre;
     }
+    ListNode cur = pre.next;
+    pre.next = null;
+    while(cur!=null){
+        ListNode next= cur.next;
+        cur.next=pre;
+        pre=cur;
+        cur=next;
+    }
+    return pre;
+}
     public static void main(String[] args){
         int[] x={1,2,6,3,4,5,6};
         int val=6;
