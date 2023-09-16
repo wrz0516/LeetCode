@@ -1,13 +1,10 @@
 package erchashu;
 
-//import sun.reflect.generics.tree.Tree;
-
 import java.util.Deque;
 import java.util.LinkedList;
-import java.util.Queue;
 
-public class Q543 {
-    public class TreeNode{
+public class Q236 {
+      public class TreeNode{
         int val;
         TreeNode left;
         TreeNode right;
@@ -51,25 +48,32 @@ public class Q543 {
                 nodeQueue.offer(currNode.right);
             }
         }
-
         return root;
     }
-    int maxWidth = 0;
-    public int getWidth(TreeNode node){
-        if(node==null) return 0;
-        int leftWidth = getWidth(node.left); //node节点左子树的最大深度（不包括根节点node）
-        int rightWidth = getWidth(node.right); //node节点右子树的深度（不包括根节点node）
-        maxWidth = Math.max(leftWidth+rightWidth,maxWidth); //左子树+右子树的深度即该结点的最大宽度
-        return Math.max(leftWidth,rightWidth)+1; //返回该结点的最大深度
-    }
-    public int diameterOfBinaryTree(TreeNode root) {
-        getWidth(root);
-        return maxWidth;
+    public TreeNode lowestCommonAncestor(TreeNode root, int p, int q) {
+        return getAncestor(root,p,q);
     }
 
+    public TreeNode getAncestor(TreeNode node, int p, int q){
+        if(node == null || node.val == p || node.val ==q){
+            return node;
+        };
+
+        TreeNode left = getAncestor(node.left,p,q);
+        TreeNode right = getAncestor(node.right,p,q);
+        if(left == null && right == null) { // 若未找到节点 p 或 q
+            return null;
+        }else if(left == null && right != null) { // 若找到一个节点
+            return right;
+        }else if(left != null && right == null) { // 若找到一个节点
+            return left;
+        }else { // 若找到两个节点
+            return node;
+        }
+    }
     public static void main(String[] args) {
-        Integer[] array = {10,5,-3,3,2,null,11,3,-2,null,1};
-        TreeNode root = new Q543().constructTree(array);
-
+        Integer[] array = {3,5,1,6,2,0,8,null,null,7,4};
+        TreeNode root = new Q236().constructTree(array);
+        new Q236().lowestCommonAncestor(root,7,2);
     }
 }
