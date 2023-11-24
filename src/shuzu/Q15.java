@@ -3,11 +3,9 @@ package shuzu;
 import java.util.*;
 
 public class Q15 {
-
         public List<List<Integer>> threeSum(int[] nums){
             List<List<Integer>> list = new ArrayList<>();
             Arrays.sort(nums);
-
 
             for(int i =0;i<nums.length;i++){
                 //1.当nums[i]大于0，说明没有满足的三元组
@@ -34,6 +32,7 @@ public class Q15 {
             }
             return list;
         }
+
 
 
 
