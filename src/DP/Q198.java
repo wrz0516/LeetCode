@@ -1,7 +1,5 @@
 package DP;
 
-import lianbiao.Q19;
-
 public class Q198 {
     public int rob(int[] nums) {
         int[] dp = new int[nums.length];

@@ -1,10 +1,5 @@
 package Graph;
 
-import erchashu.Q102;
-
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class Q1020 {
     public int numEnclaves(int[][] grid) {
         for (int i = 0; i < grid.length; i++) {
