@@ -1,4 +1,4 @@
-package shuzu;
+package Array;
 
 public class q1 {
     public int[] twoSum(int[] nums, int target) {

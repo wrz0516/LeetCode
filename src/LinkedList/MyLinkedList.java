@@ -1,4 +1,4 @@
-package lianbiao;
+package LinkedList;
 
 public class MyLinkedList {
     public class ListNode {
