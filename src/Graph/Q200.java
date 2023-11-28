@@ -21,7 +21,6 @@ public class Q200 {
                         for(int k=0;k<dir.length;k++){
                             int nextX=curX+dir[k][0];
                             int nextY =curY+dir[k][1];
-                            
                             if(nextX<0||nextX>= grid.length||nextY<0||nextY>=grid[0].length) continue;
                             if(visited[nextX][nextY]==0&&grid[nextX][nextY]=='1'){
                                 visited[nextX][nextY]=1;
