@@ -1,6 +1,6 @@
 package Array;
 
-public class q1 {
+public class Q1 {
     public int[] twoSum(int[] nums, int target) {
         int len = nums.length;
         int curr, next;
@@ -21,7 +21,7 @@ public class q1 {
     }
 
     public static void main(String[] args) {
-        q1 demo=new q1();
+        Q1 demo=new Q1();
         int[] x={2,5,5,11};
         int target=10;
         int[] res=demo.twoSum(x,target);
